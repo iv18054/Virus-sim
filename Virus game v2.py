@@ -1,3 +1,7 @@
+#Ivan VAY
+#26/11/21
+#Virus sim 2
+
 #List to hold all the countries
 country_list = []
 
