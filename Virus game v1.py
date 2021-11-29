@@ -1,3 +1,7 @@
+#Ivan VAT
+#26/11/21
+#Virus sim v1
+
 #Users input
 country = str(input("Enter a countries name"))
 #Users output
