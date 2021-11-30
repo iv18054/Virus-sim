@@ -2,11 +2,17 @@
 # 30/11/21
 # Virus sim v4
 
+#Import code from another file to generate color
+from idlecolors import *
+
 # List to hold all countries
 name_of_the_countrys = []
 infected_percentage = []
 on_lockdown = []
 
+#Intro
+printc( orange("Welcome to Virus Simulator, to start the game follow the instruction below"))
+printc( purple("==========================================================================="))
 
 # Function which get the country data from the user
 def add_countrys_to_game():
@@ -16,6 +22,9 @@ def add_countrys_to_game():
         add_country = input("Write the name of the country you will like to add and then press enter. If you are done adding countries, type \"done\" and press enter to proceed. ")
         # If the user has entered a valid country, create the country and add it to the list
         if add_country != "done":
+            while len(add_country) == 0:
+                print("You haven't typed anything, try again")
+                add_country = input()
             infected_percentages = int(input("Type in what the current percentage of infected people for " + add_country+ " and then press enter to continue. "))
             name_of_the_countrys.append(add_country)
             infected_percentage.append(infected_percentages)
@@ -54,7 +63,7 @@ def ask_which_country_to_support():
 
 # Function runs every new day. Requires argument of the country to help.
 def new_day(country_to_support):
-    print("=== NEW DAY ===")
+    printc( red("=== NEW DAY ==="))
     list_index = 0
     for country in name_of_the_countrys:
         # If one of the country was asisted by the user, the percentage of infected will be deducted by 40%
@@ -73,8 +82,7 @@ def new_day(country_to_support):
         # Print the current status of the country
         print(print_infos(name_of_the_countrys[list_index], infected_percentage[list_index], on_lockdown[list_index]))
         list_index += 1
-    print("=== END DAY ===")
-
+    printc( red("=== END DAY ==="))
 
 add_countrys_to_game()
 for i in range(0, 5):
